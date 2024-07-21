@@ -7,6 +7,10 @@ public class InputManager : MonoBehaviour
     private static InputManager instance;
     public static InputManager Instance { get => instance;}
 
+    [SerializeField] protected float onFiring;
+
+    public  float OnFiring { get => onFiring; }
+
     [SerializeField] protected Vector3 mouseWorldPos;
     public Vector3 MouseWorldPos { get => mouseWorldPos; }
 
@@ -19,9 +23,19 @@ public class InputManager : MonoBehaviour
         InputManager.instance = this;
     }
 
+    private void Update()
+    {
+        this.GetMouseDown();
+    }
+
     private void FixedUpdate()
     {
         this.GetMousePos();
+    }
+
+    protected virtual void GetMouseDown()
+    {
+        this.onFiring = Input.GetAxis("Fire1");
     }
 
     protected virtual void GetMousePos() {
