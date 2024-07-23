@@ -18,4 +18,11 @@ public class GMonoBehaviour : MonoBehaviour
     {
         /* 4 Override */
     }
+
+    protected virtual void Start()
+    {
+        /* 4 Override */
+    }
+
+    
 }
